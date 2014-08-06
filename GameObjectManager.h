@@ -9,10 +9,10 @@ public:
 
 	void Add(std::string name, VisibleGameObject *gameObject);
 	void Remove(std::string name);
-	int GetObejctCoutn() const;
+	int GetObjectCount() const;
 	VisibleGameObject* Get(std::string name) const;
 
-	void DrawAll(sf::RenderWindow);
+	void DrawAll(sf::RenderWindow &renderWindow);
 
 private:
 	std::map<std::string, VisibleGameObject*> _gameObjects;

@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "SplashScreen.h"
 #include "MainMenu.h"
+#include "GameObjectManager.h"
 
 void Game::Start(void)
 {
@@ -9,9 +10,17 @@ void Game::Start(void)
 		return;
 
 	_mainWindow.create(sf::VideoMode(1023, 768, 32), "Pang!");
+
+	// Create player1's paddle and load it
+	PlayerPaddle *player1 = new PlyerPaddle();
+	player1->Load("images/paddle.png");
+	player1->SetPosition((1024/2)-45, 700);
+
+	_gameObjectManager.Add("Paddle1", player1);
+	
+	// init the game's state
 	_gameState = Game::ShowingSplash;
 	
-
 	while(!IsExiting())
 	{
 		GameLoop();
