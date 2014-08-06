@@ -9,7 +9,7 @@ public:
 
 	void Add(std::string name, VisibleGameObject *gameObject);
 	void Remove(std::string name);
-	int GetObjectCount() const;
+	size_t GetObjectCount() const;
 	VisibleGameObject* Get(std::string name) const;
 
 	void DrawAll(sf::RenderWindow &renderWindow);

@@ -24,7 +24,7 @@ MainMenu::MenuResult MainMenu::Show(sf::RenderWindow &window)
 	playButton.rect.height = 235;
 	playButton.rect.left = 0;
 	playButton.rect.width = 1023;
-
+	playButton.action = Play;
 
 	//Exit menu item coordinates
 	MenuItem exitButton;
@@ -46,12 +46,14 @@ MainMenu::MenuResult MainMenu::HandleClick(int x, int y)
 {
 	std::list<MenuItem>::iterator it;
 
+
 	for( it = _menuItems.begin(); it != _menuItems.end(); it++)
 	{
 		sf::Rect<int> menuItemRect = (*it).rect;
-		if( menuItemRect.top > y
-			&& (menuItemRect.height + menuItemRect.top) < y
-			&& menuItemRect.left < x && (menuItemRect.left + menuItemRect.width) > x)
+
+		if( (menuItemRect.top < y)
+			&& (menuItemRect.height + menuItemRect.top) > y
+			&& (menuItemRect.left < x) && (menuItemRect.left + menuItemRect.width) > x)
 		{
 			return (*it).action;
 		}

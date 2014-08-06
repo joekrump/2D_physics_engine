@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PlayerPaddle.h" />
     <ClInclude Include="resource.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="VisibleGameObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Pang.cpp" />
     <ClCompile Include="game.cpp" />
