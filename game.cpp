@@ -12,7 +12,7 @@ void Game::Start(void)
 	_mainWindow.create(sf::VideoMode(1023, 768, 32), "Pang!");
 
 	// Create player1's paddle and load it
-	PlayerPaddle *player1 = new PlyerPaddle();
+	PlayerPaddle *player1 = new PlayerPaddle();
 	player1->Load("images/paddle.png");
 	player1->SetPosition((1024/2)-45, 700);
 
@@ -63,7 +63,7 @@ void Game::GameLoop()
 				while(_mainWindow.pollEvent(currentEvent))
 				{
 					_mainWindow.clear(sf::Color(0, 0, 0));
-					_player1.Draw(_mainWindow);
+					_gameObjectManager.DrawAll(_mainWindow);
 					_mainWindow.display();
 					
 					if(currentEvent.type == sf::Event::EventType::Closed)
@@ -117,4 +117,4 @@ Initialization of static variables outside of the class as required by C++
 */
 Game::GameState Game::_gameState = Uninitialized;
 sf::RenderWindow Game::_mainWindow;
-PlayerPaddle Game::_player1;
+GameObjectManager Game::_gameObjectManager;
