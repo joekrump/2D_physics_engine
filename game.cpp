@@ -27,7 +27,9 @@ bool Game::IsExiting()
 	else
 		return false;
 }
-
+/*
+Main game loop
+*/
 void Game::GameLoop()
 {
 	sf::Event currentEvent;
@@ -51,7 +53,8 @@ void Game::GameLoop()
 				sf::Event currentEvent;
 				while(_mainWindow.pollEvent(currentEvent))
 				{
-					_mainWindow.clear(sf::Color(255, 0, 0));
+					_mainWindow.clear(sf::Color(0, 0, 0));
+					_player1.Draw(_mainWindow);
 					_mainWindow.display();
 					
 					if(currentEvent.type == sf::Event::EventType::Closed)
@@ -71,6 +74,9 @@ void Game::GameLoop()
 	}
 }
 
+/*
+Displays the home screen
+*/
 void Game::ShowSplashScreen()
 {
 	SplashScreen splashScreen;
@@ -78,7 +84,9 @@ void Game::ShowSplashScreen()
 	_gameState = Game::ShowingMenu;
 	return;
 }
-
+/*
+Displays the menu
+*/
 void Game::ShowMenu()
 {
 	MainMenu mainMenu;
@@ -95,5 +103,9 @@ void Game::ShowMenu()
 	return;
 }
 
+/*
+Initialization of static variables outside of the class as required by C++
+*/
 Game::GameState Game::_gameState = Uninitialized;
 sf::RenderWindow Game::_mainWindow;
+PlayerPaddle Game::_player1;
