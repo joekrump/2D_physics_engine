@@ -8,6 +8,7 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Game::Start();
+
 	return 0;
 }
 

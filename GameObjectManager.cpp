@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameObjectManager.h"
+#include "Game.h"
 
 GameObjectManager::GameObjectManager()
 {
@@ -7,12 +8,12 @@ GameObjectManager::GameObjectManager()
 
 GameObjectManager::~GameObjectManager()
 {
-	std::for_each(_gameObjects.begin(),_gameObjects.end(), GameObjectDeallocator());
+	std::for_each(_gameObjects.begin(),_gameObjects.end(),GameObjectDeallocator());
 }
 
-void GameObjectManager::Add(std::string name, VisibleGameObject *gameObject)
+void GameObjectManager::Add(std::string name, VisibleGameObject* gameObject)
 {
-	_gameObjects.insert(std::pair<std::string, VisibleGameObject*>(name,gameObject));
+	_gameObjects.insert(std::pair<std::string,VisibleGameObject*>(name,gameObject));
 }
 
 void GameObjectManager::Remove(std::string name)
@@ -31,19 +32,36 @@ VisibleGameObject* GameObjectManager::Get(std::string name) const
 	if(results == _gameObjects.end() )
 		return NULL;
 	return results->second;
+	
 }
 
-size_t GameObjectManager::GetObjectCount() const
+int GameObjectManager::GetObjectCount() const
 {
 	return _gameObjects.size();
 }
 
-void GameObjectManager::DrawAll(sf::RenderWindow &renderWindow)
+
+void GameObjectManager::DrawAll(sf::RenderWindow& renderWindow)
 {
-	std::map<std::string, VisibleGameObject*>::const_iterator it = _gameObjects.begin();
-	while(it != _gameObjects.end())
+
+	std::map<std::string,VisibleGameObject*>::const_iterator itr = _gameObjects.begin();
+	while(itr != _gameObjects.end())
 	{
-		it->second->Draw(renderWindow);
-		it++;
+		itr->second->Draw(renderWindow);
+		itr++;
 	}
+}
+
+void GameObjectManager::UpdateAll()
+{
+	std::map<std::string,VisibleGameObject*>::const_iterator itr = _gameObjects.begin();
+	float timeDelta = clock.restart().asSeconds();
+
+	while(itr != _gameObjects.end())
+	{
+		itr->second->Update(timeDelta);
+		itr++;
+	}
+
+	
 }
