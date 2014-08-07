@@ -8,7 +8,7 @@ class Game
 {
 public: 
 	static void Start(void);
-	static sf::RenderWindow getWindow();
+	static sf::RenderWindow& getWindow();
 private:
 	static bool IsExiting();
 	static void GameLoop();

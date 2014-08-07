@@ -1,10 +1,18 @@
-﻿Build started 8/6/2014 4:33:11 PM.
+﻿Build started 8/6/2014 6:30:52 PM.
      1>Project "E:\physics_engine\Pang.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         R:\Programs\VC\bin\x86_amd64\CL.exe /c /I"SFML-1.6/Include/" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\Pang.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt MainMenu.cpp
-         MainMenu.cpp
+         R:\Programs\VC\bin\x86_amd64\CL.exe /c /I"SFML-1.6/Include/" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\Pang.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt Pang.cpp PlayerPaddle.cpp game.cpp
+         game.cpp
+     1>game.cpp(75): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+         Generating Code...
+         Compiling...
+         PlayerPaddle.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         Pang.cpp
        Link:
          R:\Programs\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\physics_engine\x64\Debug\Pang.exe" /INCREMENTAL /NOLOGO /LIBPATH:"SFML-1.6/lib/" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "sfml-system-d.lib" "sfml-main-d.lib" "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\physics_engine\x64\Debug\Pang.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\physics_engine\x64\Debug\Pang.lib" /MACHINE:X64 x64\Debug\Pang.res
+         x64\Debug\GameBall.obj
          x64\Debug\GameObjectManager.obj
          x64\Debug\MainMenu.obj
          x64\Debug\Pang.obj
@@ -18,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.74
+Time Elapsed 00:00:08.16

@@ -3,6 +3,7 @@
 #include "SplashScreen.h"
 #include "MainMenu.h"
 #include "GameObjectManager.h"
+#include "GameBall.h"
 
 void Game::Start(void)
 {
@@ -37,7 +38,7 @@ bool Game::IsExiting()
 		return false;
 }
 
-sf::RenderWindow Game::getWindow()
+sf::RenderWindow& Game::getWindow()
 {
 	return _mainWindow;
 }
@@ -69,6 +70,11 @@ void Game::GameLoop()
 				while(_mainWindow.pollEvent(currentEvent))
 				{
 					_mainWindow.clear(sf::Color(0, 0, 0));
+					
+					GameBall *ball = new GameBall();
+					ball->SetPosition(Game::getWindow().getSize().x/2, (Game::getWindow().getSize().x/2)-15);
+					_gameObjectManager.Add("Ball", ball);
+
 					_gameObjectManager.DrawAll(_mainWindow);
 					_mainWindow.display();
 					
