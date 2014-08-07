@@ -36,6 +36,12 @@ bool Game::IsExiting()
 	else
 		return false;
 }
+
+sf::RenderWindow Game::getWindow()
+{
+	return _mainWindow;
+}
+
 /*
 Main game loop
 */
@@ -75,6 +81,7 @@ void Game::GameLoop()
 					{
 						if(currentEvent.key.code == sf::Keyboard::Escape) ShowMenu();
 					}
+
 				}
 						
 				break;
