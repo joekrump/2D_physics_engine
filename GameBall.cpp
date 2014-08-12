@@ -49,6 +49,8 @@ void GameBall::Update(float elapsedTime) //Parameter is the time since last fram
 
 
 	PlayerPaddle* player1 = dynamic_cast<PlayerPaddle*>(Game::GetGameObjectManager().Get("Paddle1"));
+	AIPaddle* player2 = dynamic_cast<AIPaddle*>(Game::GetGameObjectManager().Get("Paddle2"));
+
 	if(player1 != NULL)
 	{
 		sf::Rect<float> p1BB = player1->GetBoundingRect();
@@ -96,11 +98,58 @@ void GameBall::Update(float elapsedTime) //Parameter is the time since last fram
 		//if(GetPosition().y - GetSprite().GetSize().y/2 - moveByY <= 0 || GetPosition().y + GetSprite().GetSize().y/2 + moveByY >= Game::SCREEN_HEIGHT)
 		if(GetPosition().y + GetHeight()/2 + moveByY >= Game::SCREEN_HEIGHT)
 		{
-			// move to middle of the screen for now and randomize angle
-			GetSprite().setPosition(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
-			_angle = (rand()%360)+1;
-			_velocity = 230.0f;
-			_elapsedTimeSinceStart = 0.0f;
+			ResetBall();
+		}
+
+		GetSprite().move(moveByX,moveByY);
+	}
+
+	if(player2 != NULL)
+	{
+		sf::Rect<float> p2BB = player2->GetBoundingRect();
+	
+		if(p2BB.intersects(GetBoundingRect()))
+		{ 
+			_angle =  360.0f - (_angle - 180.0f);
+			if(_angle > 360.0f) _angle -= 360.0f;
+		
+		
+
+			moveByY = -moveByY;
+			
+			// Make sure ball isn't inside paddle
+			if(GetBoundingRect().top < player2->GetBoundingRect().top)
+			{
+				ResetBall();
+			}
+		
+			float playerVelocity = player2->GetVelocity();
+		
+			if(playerVelocity < 0)
+			{
+				// moving left
+				_angle -= 20.0f;
+				if(_angle < 0 ) _angle = 360.0f - _angle;
+			}
+			else if(playerVelocity > 0)
+			{
+				_angle += 20.0f;
+				if(_angle > 360.0f) _angle = _angle - 360.0f;
+			}
+
+			_velocity += 5.0f;
+		}
+
+		if(GetPosition().y - GetHeight()/2 <= 0)
+		{
+			_angle =  180 - _angle;
+			moveByY = -moveByY;
+		}
+
+	
+		if((GetBoundingRect().top + GetHeight()/2) < player2->GetBoundingRect().top)
+		{
+			ResetBall();
 		}
 
 		GetSprite().move(moveByX,moveByY);
@@ -119,4 +168,13 @@ float GameBall::LinearVelocityY(float angle)
 	angle -= 90;
     if (angle < 0) angle = 360 + angle;
 		return (float)std::sin( angle * ( 3.1415926 / 180.0f ));
+}
+
+void GameBall::ResetBall()
+{
+	// move to middle of the screen for now and randomize angle
+	GetSprite().setPosition(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
+	_angle = (rand()%360)+1;
+	_velocity = 230.0f;
+	_elapsedTimeSinceStart = 0.0f;
 }

@@ -1,20 +1,20 @@
-﻿Build started 8/6/2014 9:54:06 PM.
+﻿Build started 8/12/2014 9:08:05 AM.
      1>Project "E:\physics_engine\Pang.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         R:\Programs\VC\bin\CL.exe /c /I"SFML-2.0-rc\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Pang.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp GameBall.cpp
+         R:\Programs\VC\bin\CL.exe /c /I"SFML-2.0-rc\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Pang.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GameBall.cpp
          GameBall.cpp
      1>e:\physics_engine\gameball.cpp(13): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>e:\physics_engine\gameball.cpp(101): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-         Game.cpp
-     1>e:\physics_engine\game.cpp(53): warning C4172: returning address of local variable or temporary
-         Generating Code...
+     1>e:\physics_engine\gameball.cpp(177): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
        Link:
-         R:\Programs\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\physics_engine\Debug\Pang.exe" /INCREMENTAL /NOLOGO /LIBPATH:"SFML-2.0-rc\lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "sfml-system-d.lib" "sfml-main-d.lib" "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\physics_engine\Debug\Pang.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\physics_engine\Debug\Pang.lib" /MACHINE:X86 Debug\Game.obj
+         R:\Programs\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\physics_engine\Debug\Pang.exe" /INCREMENTAL /NOLOGO /LIBPATH:"SFML-2.0-rc\lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "sfml-system-d.lib" "sfml-main-d.lib" "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\physics_engine\Debug\Pang.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\physics_engine\Debug\Pang.lib" /MACHINE:X86 Debug\AIPaddle.obj
+         Debug\Game.obj
          Debug\GameBall.obj
          Debug\GameObjectManager.obj
          Debug\MainMenu.obj
          Debug\Pang.obj
          Debug\PlayerPaddle.obj
+         Debug\SFMLSoundProvider.obj
+         Debug\SoundFileCache.obj
          Debug\SplashScreen.obj
          Debug\stdafx.obj
          Debug\VisibleGameObject.obj
@@ -23,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.06
+Time Elapsed 00:00:00.69

@@ -2,6 +2,7 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "PlayerPaddle.h"
+#include "AIPaddle.h"
 #include "GameBall.h"
 #include "GameObjectManager.h"
 

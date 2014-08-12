@@ -15,10 +15,14 @@ void Game::Start(void)
 	PlayerPaddle *player1 = new PlayerPaddle();
 	player1->SetPosition((SCREEN_WIDTH/2),700);
 
+	AIPaddle * player2 = new AIPaddle();
+	player2->SetPosition((SCREEN_WIDTH/2),40);
+
 	GameBall *ball = new GameBall();
 	ball->SetPosition((SCREEN_WIDTH/2),(SCREEN_HEIGHT/2)-15);
 	
 	_gameObjectManager.Add("Paddle1",player1);
+	_gameObjectManager.Add("Paddle2",player2);
 	_gameObjectManager.Add("Ball",ball);
 
 	_gameState= Game::ShowingSplash;

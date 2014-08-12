@@ -17,4 +17,5 @@ private:
 
 	float LinearVelocityX(float angle);
 	float LinearVelocityY(float angle);
+	void ResetBall();
 };
